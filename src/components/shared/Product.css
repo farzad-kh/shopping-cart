@@ -1,0 +1,150 @@
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 15px 12px 15px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+
+.cart-container:hover {
+    box-shadow: 0 2px 18px #e5e5e5;
+    transform: translateY(-3px);
+}
+
+
+.cart-container h3 {
+    font-size: 1rem;
+    color: var(--blackColor);
+    text-align: center;
+    text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+}
+
+.sec-price {
+
+    font-size: 14px;
+    position: relative;
+    color: var(--blackColor)
+}
+
+.first-price {
+    color: #0F1111;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.img-container {
+    width: 208px;
+    position: relative;
+    display: block;
+    height: 208px;
+    margin: 10px 0;
+}
+
+.rate-container {
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rate-container .rate {
+    font-size: 0.79rem;
+    margin-left: 8px;
+    color: var(--blackColor);
+    font-weight: bold;
+    position: absolute;
+left: 81px;
+}
+.details{
+    color: #2c96d4;
+    overflow: hidden;
+   transform: translateY(-33px)
+  
+}
+.cart-container:hover .details{
+    color: #2c96d4;
+    overflow: unset;
+    transform: translateY(0px)
+  
+}
+
+
+.btn-quan button {
+   
+    padding: 7px 10px;
+    border-radius: 4px;
+    position: relative;
+}
+.btn-quan button::after {
+    content: "";
+    border-bottom:2px solid #315d89;
+    position: absolute;
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -1px;
+    right: 0;
+}
+
+.btn-quan .trash-icon::after {
+    
+    border-bottom:2px solid #bb3030;
+
+}
+.btn-quan .trash-icon:active::after {
+    
+    border-bottom:2px solid #eb2f52fc;
+
+}
+.btn-quan button:active::after {
+    border-bottom: 2px solid #3d73a9;
+  }
+
+.btn-quan button:active {
+  transform: scale(0.93);
+  transition: all 150ms linear !important;
+}
+
+
+.btn-color-quan {
+    background-color: #1376b1fc
+}
+.margin-right{
+    margin-right: 8px;
+  }
+  .margin-left{
+    margin-left: 8px;
+  }
+
+
+.quantity-btn-container{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.quantity-btn-container button{
+ 
+   color: #fff;
+}
+.trash-icon{
+    background-color: #eb2f52fc;
+}
+img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}

@@ -1,13 +1,247 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --blackColor: #2b2b2b;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: text-security-disc;
+  src: url("https://raw.githubusercontent.com/noppa/text-security/master/dist/text-security-disc.woff");
 }
+
+* {
+  box-sizing: border-box;
+  transition: all 200ms ease-in;
+
+  outline: none;
+}
+button:active,:focus{
+  border: none !important;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+
+
+  direction: ltr;
+  transition: backGround 200ms ease-in;
+}
+
+header h1 {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::after,
+::before {
+  transition: all 200ms ease-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+
+}
+
+button {
+  cursor: pointer;
+  border: navajowhite;
+  background: none;
+}
+
+a:visited,
+a:focus {}
+
+button:active {}
+
+.btn {
+
+  border-radius: 0px 8px 8px 0px;
+  position: absolute;
+  right: 50px;
+  height: 39.8px;
+  color: white;
+  width: 70px;
+}
+
+
+
+.color1 {
+  background: #5eb1e3;
+}
+
+.color2 {
+  background: #a3e35e;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.loading-container {
+  height: 80vh;
+  display: flex;
+  align-items: center
+}
+
+.nav-container div a {
+  color: rgb(255, 255, 255);
+  height: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  font-weight: 700;
+
+}
+
+.nav-container div {
+  height: 100%;
+  width: 1350px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.nav-container div ul {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+
+}
+.nav-container div ul li {
+position: relative;
+}
+
+.nav-container ul li:first-child::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  transition: .2s all linear;
+  background-color: #fff;
+  height: 3px;
+  bottom: 1px;
+  border-radius: 12px;
+}
+.nav-container ul li:first-child:hover:after {
+width: 100%;
+}
+
+
+.loading {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid rgb(0, 0, 0);
+  border-right: 1px solid white;
+  box-sizing: border-box;
+  animation: 1s linear 0s infinite normal none running rotation;
+
+
+}
+.dis-flex{
+  display: flex;
+  justify-content: center !important;
+}
+
+
+.fiture{
+  height:100vh;
+position: relative;
+ background-image: url('components/image/2464971_CAM_Onsite_EU_BTS_FOOTBALLRUNNINGPROMO_FW22_MASTHEAD_LARGE_MEN_2280x1280px_tcm346-920804.jpg'); 
+background-size: cover;
+background-position: center;
+padding: 0 30px 0 30px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+top: -50px;
+}
+.buttons{
+ width: 25%;
+ display: flex;
+ align-items: center;
+
+
+}
+.button {
+  min-width: 130px;
+  padding: 12px 12px;
+  line-height: 1.5;
+  background-color: white;
+  border-radius: 2px;
+  margin-top: 20px;
+  display: flex;
+  position: relative;
+  z-index: 2;
+  justify-content: space-between;
+  align-items: center;
+
+  
+}
+.button span {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all ease .2s;
+
+}
+.button:hover span {
+  color: var(--secendery)
+}
+.buttons i{
+  margin-left: 20px;
+}
+
+.button::after {
+  content: "";
+  border: 1px solid #fff;
+  position: absolute;
+  right: -3px;
+  top: 3px;
+  bottom: -3.5px;
+  width: 100%;
+
+  border-radius: 1px;
+}
+.checkout-success-container{
+  background-color: #eee;
+  border-radius:4px ;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding:  20px 20px;
+  width: 80%;
+  margin:  0 auto;
+}
+.checkout-success-container div{
+margin-bottom:15px ;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
