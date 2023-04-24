@@ -9,10 +9,14 @@ const ShopCarts = () => {
 
     const clearItem = () => {
         if (window.confirm("are you sure you want remove all items ?")) {
-            dispatch({ type: "CLEAR" })
+         
+                dispatch({ type: "CLEAR" })
+          
+          
         }
 
     }
+    console.log(state);
     const chekoutItem = () => {
         setLoadAnime(true)
         //   setTimeout(()=>  dispatch({type:"CHECKOUT"}),2000)
@@ -38,6 +42,7 @@ const ShopCarts = () => {
                     <div div className='checkout-container'>
                         <div className='justify'>total item:<p>{state.itemsCounter}</p></div>
                         <div className='justify'>total price:<p style={{ fontWeight: "700" }}>${state.total}</p></div>
+                       { console.log(state)}
                         <div className='justify'>
                             <button onClick={() => clearItem()} style={{ color: "#be4949" }}>Clear</button>
                             <button className={`btn-l ${loadAnime && "load"} `} onClick={() => chekoutItem()}>Checkout</button>

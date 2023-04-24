@@ -1,49 +1,57 @@
-import React, { useReducer, createContext } from 'react';
+import React, { useReducer, createContext, useState } from 'react';
 
 const initialState = {
     selectedItems: [],
     itemsCounter: 0,
     total: 0,
     checkout: false,
+    offer: false,
+
 
 }
 const sumItems = (items) => {
-  
+
     // const itemsQuantity = items.map(item=>item.quantity)
     // const itemsCounter = itemsQuantity.reduce((acc,cur)=>(acc+cur),0)
-     const itemsCounter = items.reduce((acc, cur) => (acc + cur.quantity), 0)
-    const  total = items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2)
-  
-    return { itemsCounter,  total }
+    const itemsCounter = items.reduce((acc, cur) => (acc + cur.quantity), 0)
+    const total = items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2)
+
+    return { itemsCounter, total }
 }
+
+
 const cartReducer = (state, action) => {
-    console.log(state)
+
     switch (action.type) {
         case "ADD_ITEM":
-            if (!state.selectedItems.find(item => item.id === action.payload.id)) {
-                state.selectedItems.push({
-                    ...action.payload,
-                    quantity: 1
-                })
-            }
+           if (!state.selectedItems.fine(item=>item.id===action.payload.id)) {
+            state.selectedItems.push({
+                ...action.payload,
+                quantity:1
+            })
+           }
+
+           
             return {
+
                 ...state,
                 ...state.selectedItems,
                 ...sumItems(state.selectedItems),
+
                 checkout: false
             }
         case "REMOVE_ITEM":
-            
+
             const newSelectedItems = state.selectedItems.filter(item => item.id !== action.payload.id);
-          
+
             return {
                 ...state,
-               selectedItems:[...newSelectedItems],
+                selectedItems: [...newSelectedItems],
                 // bayad hasele newSlectedItem ro bedim be sumItems
                 ...sumItems(newSelectedItems),
-            
-                
-              
+
+
+
             }
         case "INCREASE":
             const indexI = state.selectedItems.findIndex(item => item.id === action.payload.id);
@@ -66,7 +74,9 @@ const cartReducer = (state, action) => {
                 itemsCounter: 0,
                 total: 0,
                 checkout: true,
-              
+                offer: true,
+
+
             }
         case "CLEAR":
             return {
@@ -74,22 +84,30 @@ const cartReducer = (state, action) => {
                 itemsCounter: 0,
                 total: 0,
                 checkout: false,
-              
+                offer: false,
+      
+
             }
+        
+
         default:
             return state;
     }
 }
 
 export const CartContext = createContext()
+export const OfferTenContext = createContext()
 
 const CartContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(cartReducer, initialState)
-
+    const [offerTen, setOfferTen] = useState(false)
     return (
         <CartContext.Provider value={{ state, dispatch }}>
-            {children}
+        
+            <OfferTenContext.Provider value={{ offerTen, setOfferTen }}>
+                {children}
+            </OfferTenContext.Provider>
         </CartContext.Provider>
     );
 };

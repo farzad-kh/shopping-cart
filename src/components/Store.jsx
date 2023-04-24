@@ -22,7 +22,9 @@ const Store = () => {
                     title={item.title}
                     price={item.price}
                     id={item.id}
-                    rate={item["rating"].rate} />)
+                    rate={item["rating"].rate}
+                   
+                    />)
                   
             }
          

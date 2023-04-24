@@ -81,24 +81,37 @@ const isInCart = (state, id) => {
     const result = !!state.selectedItems.find(item => item.id === id)
     return result;
 }
-const quan=(state,id)=>{
-const q=state.selectedItems.findIndex(item => item.id === id);
-console.log(q)
-return q
+const quan = (state, id) => {
+    const q = state.selectedItems.findIndex(item => item.id === id);
+    console.log(q)
+    return q
 
 }
 
-const quantityCount=(state, id)=>{
-    const index =state.selectedItems.findIndex(item => item.id === id)
-    if (index=== -1) {
+const quantityCount = (state, id) => {
+    const index = state.selectedItems.findIndex(item => item.id === id)
+    if (index === -1) {
         return false
-    }else{
+    } else {
         return state.selectedItems[index].quantity
     }
 }
 
+const offer = (items) => {
+    const offerSale = ((items.price) - (items.price * 10) / 100).toFixed(2)
 
-export { shorter, newPrice, rateStars,isInCart ,quan,quantityCount }
+
+    return items.price = offerSale
+
+}
+
+
+
+
+
+
+
+export { shorter, newPrice, rateStars, isInCart, quan, quantityCount, offer }
 
 
 

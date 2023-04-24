@@ -12,7 +12,7 @@ const ProductContextProvider = ({ children }) => {
 
     useEffect(() => {
         const getProducts =async () => {
-            setData(await getData())
+         return   setData(await getData())
 
         }
      

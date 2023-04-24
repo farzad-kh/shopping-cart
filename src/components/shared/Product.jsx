@@ -1,25 +1,32 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import style from "./Product.css"
 import { Link } from 'react-router-dom';
 import { shorter, newPrice } from '../../helpers/functions';
 import StarRatings from 'react-star-ratings';
-import { rateStars, isInCart, quan, quantityCount } from '../../helpers/functions';
+import { ProductsContext } from '../../context/ProductContextProvider';
+import { rateStars, isInCart, quan, quantityCount, offer } from '../../helpers/functions';
 import { CartContext } from "../../context/CartContextProvider"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashCan,faPlus,faMinus} from '@fortawesome/free-solid-svg-icons'
+import { faTrashCan, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { OfferTenContext } from '../../context/CartContextProvider';
 // import {faPlus } from '@fortawesome/free-regular-svg-icons'
-const trashCan = <FontAwesomeIcon style={{color:"#fff"}} icon={faTrashCan} />
-const plusIcon = <FontAwesomeIcon style={{color:"#fff"}} icon={faPlus} />
-const minusIcon = <FontAwesomeIcon style={{color:"#fff"}} icon={faMinus} />
-const Product = ({ title, price, image, id, rate }) => {
+const trashCan = <FontAwesomeIcon style={{ color: "#fff" }} icon={faTrashCan} />
+const plusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faPlus} />
+const minusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faMinus} />
+
+const Product = ({ title, price, image, id, rate}) => {
     const dataProduct = { title, price, image, id, rate }
     const { state, dispatch } = useContext(CartContext)
 
+    useEffect(() => {
+console.log(state);
+    }, [])
+    const { offerTen } = useContext(OfferTenContext)
     return (
 
         <div className='cart-container'>
-            <div style={{position:"relative"}} className='rate-container'>
-      
+            <div style={{ position: "relative" }} className='rate-container'>
+
                 <StarRatings
                     rating={rate}
                     starDimension="15px"
@@ -29,31 +36,55 @@ const Product = ({ title, price, image, id, rate }) => {
                 <div className='rate'>{rate}</div>
                 <Link className='details' to={`/products/${id}`}>Details</Link>
             </div>
-           
+
             <div className='img-container'>
                 <img src={image} alt='product' />
             </div>
-          <div style={{width: "91%"}}>
-          <h3 className='product-title'>{shorter(title)}</h3>
-          </div>
-          
-
-            <div style={{ display: "flex", marginTop: "10px" }}>
-                <p className='first-price'>${newPrice(price)[0]}</p>
-                {newPrice(price).length >= 2 ? <p style={{ margin: "0 1px" }}>.</p> : ""}
-                <p className="sec-price">{newPrice(price)[1]}</p>
+            <div style={{ width: "91%" }}>
+                <h3 className='product-title'>{shorter(title)}</h3>
             </div>
 
+
+            <div className={`price-container ${offerTen &&   "apply-offer"}`} >
+                <div style={{ display: "flex", position: "relative" }}>
+                    {/* className='offer-display   */}
+
+                    {offerTen && 
+                        <>
+                            <span className="offer-display">%10</span>
+                            <span className='offer-line'></span>
+                        </>
+
+                    }
+
+                    <p style={{ flex: newPrice(price).length === 1 ? 1 : 0 }} className='first-price'>${newPrice(price)[0]}</p>
+                    {newPrice(price).length >= 2 ? <p style={{ margin: "0 1px" }}>.</p> : ""}
+                    <p className="sec-price">{newPrice(price)[1]}</p>
+                </div>
+
+
+                {offerTen  ? <div className='new-offer'>  <p>${offerTen ? offer(dataProduct) : null}</p></div>
+
+                    : ""}
+
+
+
+            </div>
+
+
+
             <div>
-  {/* {state.selectedItems[quan(state, id)].quantity */}
+                {/* {state.selectedItems[quan(state, id)].quantity */}
                 <div className='quantity-btn-container btn-quan'>
+
+
                     {
                         isInCart(state, id) ?
 
                             <button className='margin-left btn-color-quan'
                                 onClick={() => dispatch({ type: "INCREASE", payload: dataProduct })}>{plusIcon}</button>
 
-                                : <button className='btn-color-quan'
+                            : <button className='btn-color-quan'
                                 onClick={() => dispatch({ type: "ADD_ITEM", payload: dataProduct })}>Add to cart</button>
                     }
                     {<div>{quantityCount(state, id)}</div>}
