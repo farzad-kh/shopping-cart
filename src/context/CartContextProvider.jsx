@@ -24,7 +24,7 @@ const cartReducer = (state, action) => {
 
     switch (action.type) {
         case "ADD_ITEM":
-           if (!state.selectedItems.fine(item=>item.id===action.payload.id)) {
+           if (!state.selectedItems.find(item=>item.id===action.payload.id)) {
             state.selectedItems.push({
                 ...action.payload,
                 quantity:1
