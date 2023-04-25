@@ -97,6 +97,8 @@ const quantityCount = (state, id) => {
     }
 }
 
+
+
 const offer = (items) => {
     const offerSale = ((items.price) - (items.price * 10) / 100).toFixed(2)
 

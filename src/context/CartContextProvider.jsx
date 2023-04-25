@@ -9,15 +9,15 @@ const initialState = {
 
 
 }
-const sumItems = (items) => {
+ const sumItems = (items) => {
 
-    // const itemsQuantity = items.map(item=>item.quantity)
-    // const itemsCounter = itemsQuantity.reduce((acc,cur)=>(acc+cur),0)
-    const itemsCounter = items.reduce((acc, cur) => (acc + cur.quantity), 0)
-    const total = items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2)
+     // const itemsQuantity = items.map(item=>item.quantity)
+     // const itemsCounter = itemsQuantity.reduce((acc,cur)=>(acc+cur),0)
+     const itemsCounter = items.reduce((acc, cur) => (acc + cur.quantity), 0)
+     const total = items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2)
 
-    return { itemsCounter, total }
-}
+     return { itemsCounter, total }
+ }
 
 
 const cartReducer = (state, action) => {
@@ -94,6 +94,11 @@ const cartReducer = (state, action) => {
             return state;
     }
 }
+
+
+
+
+
 
 export const CartContext = createContext()
 export const OfferTenContext = createContext()
