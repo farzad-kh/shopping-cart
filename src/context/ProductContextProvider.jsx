@@ -8,21 +8,30 @@ import { getData } from '../data/Api';
 export const ProductsContext = createContext()
 const ProductContextProvider = ({ children }) => {
     const [data, setData] = useState([])
+    // const [newP, setNewP] = useState({})
+
+// const setNewP={newoffer:20}
+ const newData=data.map(item=>{
+    return {...item,offer:12}
+})
+
 
 
     useEffect(() => {
         const getProducts =async () => {
+          
          return   setData(await getData())
 
         }
-     
+
         getProducts()
     }, [])
 
 
     return (
        
-       <ProductsContext.Provider value={data}>
+       <ProductsContext.Provider value={newData}>
+       
         {children}
        </ProductsContext.Provider>
     );

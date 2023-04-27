@@ -6,7 +6,7 @@ const ModalOffer = () => {
     const [modalAnime, setModalAnime] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const [op, setOp] = useState(false)
- 
+    const ProductsData = useContext(ProductsContext)
     const { offerTen,setOfferTen } = useContext(OfferTenContext)
     useEffect(() => {
 
@@ -14,7 +14,7 @@ const ModalOffer = () => {
         setTimeout(() => setModalAnime(true), 2200)
 
     }, [])
-    const ProductsData = useContext(ProductsContext)
+    
 
     if (!openModal || !ProductsData.length) return null
     return (
@@ -27,7 +27,7 @@ const ModalOffer = () => {
                     <p onClick={() => { setTimeout(() => setOpenModal(false), 500); setOp(true) }} className='close-btn'>x</p>
                     <div className='content'>
                         <p>do you want a</p>
-                        <p>$10 discount</p>
+                        <p>{ProductsData[0].offer}% discount</p>
                         <p>for your first purchase</p>
                     </div>
                     <div className='btn-container'>

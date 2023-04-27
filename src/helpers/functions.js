@@ -100,10 +100,20 @@ const quantityCount = (state, id) => {
 
 
 const offer = (items) => {
-    const offerSale = ((items.price) - (items.price * 10) / 100).toFixed(2)
+    console.log(items.offerPrice);
 
 
-    return items.price = offerSale
+    const percent = (items.price * items.offerPrice) / 100
+    const total = (items.price - percent).toFixed(2)
+
+
+
+
+    // const offerSale = ((items.price) - (items.price * 10) / 100).toFixed(2)
+
+
+    // return items.price = offerSale
+    return items.price = total
 
 }
 
@@ -112,8 +122,7 @@ const offer = (items) => {
 
 
 
-
-export { shorter, newPrice, rateStars, isInCart, quan, quantityCount, offer }
+export { shorter, newPrice, rateStars, isInCart, quan, quantityCount, offer, }
 
 
 

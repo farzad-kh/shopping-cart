@@ -23,6 +23,7 @@ function App() {
 
     <ProductContextProvider>
       <CartContextProvider>
+     
         <Navbar />
         < ModalOffer   />
         <Routes>

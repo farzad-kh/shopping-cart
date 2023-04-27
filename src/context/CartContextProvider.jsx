@@ -1,4 +1,5 @@
 import React, { useReducer, createContext, useState } from 'react';
+import { offer } from '../helpers/functions';
 
 const initialState = {
     selectedItems: [],
@@ -13,10 +14,12 @@ const initialState = {
 
      // const itemsQuantity = items.map(item=>item.quantity)
      // const itemsCounter = itemsQuantity.reduce((acc,cur)=>(acc+cur),0)
+     
      const itemsCounter = items.reduce((acc, cur) => (acc + cur.quantity), 0)
      const total = items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2)
+     const offerPrice  = items.reduce((acc, cur) => (acc + (cur.price * cur.offerPrice)/100 ), 0).toFixed(2)
 
-     return { itemsCounter, total }
+     return { itemsCounter, total,offerPrice }
  }
 
 

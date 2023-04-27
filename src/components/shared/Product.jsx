@@ -14,14 +14,17 @@ const trashCan = <FontAwesomeIcon style={{ color: "#fff" }} icon={faTrashCan} />
 const plusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faPlus} />
 const minusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faMinus} />
 
-const Product = ({ title, price, image, id, rate}) => {
-    const dataProduct = { title, price, image, id, rate }
+const Product = ({ title, price, image, id, rate,offerPrice}) => {
+    const dataProduct = { title, price, image, id, rate,offerPrice }
+
     const { state, dispatch } = useContext(CartContext)
 
     useEffect(() => {
-console.log(state);
+        console.log(state);
     }, [])
     const { offerTen } = useContext(OfferTenContext)
+    const data = useContext(ProductsContext)
+
     return (
 
         <div className='cart-container'>
@@ -44,14 +47,13 @@ console.log(state);
                 <h3 className='product-title'>{shorter(title)}</h3>
             </div>
 
-
-            <div className={`price-container ${offerTen &&   "apply-offer"}`} >
+            <div className={`price-container ${offerTen && "apply-offer"}`} >
                 <div style={{ display: "flex", position: "relative" }}>
                     {/* className='offer-display   */}
 
-                    {offerTen && 
+                    {offerTen &&
                         <>
-                            <span className="offer-display">%10</span>
+                            <span className="offer-display">{offerPrice}%</span>
                             <span className='offer-line'></span>
                         </>
 
@@ -63,12 +65,12 @@ console.log(state);
                 </div>
 
 
-                {offerTen  ? <div className='new-offer'>  <p>${offerTen ? offer(dataProduct) : null}</p></div>
+                {offerTen ? <div className='new-offer'>  <p>${offerTen ? offer(dataProduct)  : null}</p></div>
 
                     : ""}
 
 
-
+{console.log(dataProduct)}
             </div>
 
 

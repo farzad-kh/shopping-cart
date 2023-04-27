@@ -15,7 +15,7 @@ const Store = () => {
         setSearch(e.target.value.toLowerCase())
 
     }
-   
+   console.log(ProductsData);
     let regex = /'/g;
     const searchProducts=ProductsData.filter(item=>item.title.replace(regex,"").toLowerCase().includes(search))
     return (
@@ -26,7 +26,7 @@ const Store = () => {
             <Search searchHandler={searchHandler} search={search}/>
             <div style={{ marginTop: "0" }} className='shop-cart-container dis-flex '>
 
-           { console.log(ProductsData[18]?.title)}
+           
                 {!ProductsData.length ? <div className='loading-container' ><span className='loading'></span></div>
 
                     :
@@ -36,13 +36,13 @@ const Store = () => {
                         <Product key={item.id}
                             image={item.image}
                             title={item.title}
-                           
+                            offerPrice={item.offer}
                             price={item.price}
                             id={item.id}
                             rate={item["rating"].rate}
 
                         />)
-                        : <p style={{minHeight:"500px"}}> No results found for {search}  🙄</p>
+                        : <p style={{minHeight:"500px"}}> No results found for <span style={{color:"#dc2c2c"}}>{search}</span>  🙄</p>
 
                 }
 
