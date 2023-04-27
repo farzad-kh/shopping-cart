@@ -23,7 +23,12 @@ const Store = () => {
          
   
             <Fiture  />
-            <Search searchHandler={searchHandler} search={search}/>
+
+      
+            {ProductsData.length ? <Search searchHandler={searchHandler} search={search}/>
+            
+            
+            :    ""  }
             <div style={{ marginTop: "0" }} className='shop-cart-container dis-flex '>
 
            

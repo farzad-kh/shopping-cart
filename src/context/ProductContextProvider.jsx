@@ -12,7 +12,7 @@ const ProductContextProvider = ({ children }) => {
 
     // const setNewP={newoffer:20}
     const newData = data.map(item => {
-        return { ...item, offer: 12, newOfferPrice: 0 }
+        return { ...item, offer: Math.floor(Math.random()*15 )+1 , newOfferPrice: 0 }
     })
 
 

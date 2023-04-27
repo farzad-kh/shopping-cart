@@ -24,10 +24,10 @@ const ModalOffer = () => {
             <div onClick={(e) => e.stopPropagation()} className={`modal-container ${modalAnime && "modalAnime"} ${op ? "closeAnime" : ""}`}>
                 <img src={logo} />
                 <div className='modal-right'>
-                    <p onClick={() => { setTimeout(() => setOpenModal(false), 500); setOp(true) }} className='close-btn'>x</p>
+                    <p style={{cursor:"pointer"}} onClick={() => { setTimeout(() => setOpenModal(false), 500); setOp(true) }} className='close-btn'>x</p>
                     <div className='content'>
                         <p>do you want a</p>
-                        <p>{ProductsData[0].offer}% discount</p>
+                        <p>$ Discount</p>
                         <p>for your first purchase</p>
                     </div>
                     <div className='btn-container'>
