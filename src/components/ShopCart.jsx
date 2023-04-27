@@ -5,17 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { CartContext} from '../context/CartContextProvider';
 import { ProductsContext } from '../context/ProductContextProvider';
+import {OfferTenContext} from "../context/CartContextProvider"
 // import {faPlus } from '@fortawesome/free-regular-svg-icons'
 const trashCan = <FontAwesomeIcon style={{ color: "#fff" }} icon={faTrashCan} />
 const plusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faPlus} />
 const minusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faMinus} />
-const ShopCart = ({ title, price, image, id, rate, quantity,offerPrice  }) => {
+const ShopCart = ({ title, price, image, id, rate, quantity,offerPrice,  newOfferPrice}) => {
     
     const { state, dispatch } = useContext(CartContext)
+    const { offerTen } = useContext(OfferTenContext)
   
 
 
-    const dataProduct = { title, price, image, id, rate,offerPrice }
+    const dataProduct = { title, price, image, id, rate,offerPrice,newOfferPrice }
     return (
 
 
@@ -29,8 +31,9 @@ const ShopCart = ({ title, price, image, id, rate, quantity,offerPrice  }) => {
                     <h4>{shorter(title)}</h4>
 
                 </div>
-                <div>
-                    <p className='max-width' style={{ color: "#23b06ff7", margin: "0 20px" }}>${price} </p>
+                <div style={{display:"flex",alignItems:"center",flexDirection:"column"}}>
+{ offerTen ?<><p className='max-width' style={{ fontSize:"0.80rem",color: "#828282", margin: "0 20px"  }}>${price} </p><span style={{fontSize:"1rem ",fontWeight:"bold",marginTop:"2px"}}>{newOfferPrice}</span></> :<p className='max-width' style={{ color: "var(--blackColor)", margin: "0 20px" }}>${price} </p>}
+                    
 
                 </div>
 

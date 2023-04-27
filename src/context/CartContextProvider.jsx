@@ -7,7 +7,7 @@ const initialState = {
     total: 0,
     checkout: false,
     offer: false,
-
+    offerPrice :0
 
 }
  const sumItems = (items) => {
@@ -17,9 +17,15 @@ const initialState = {
      
      const itemsCounter = items.reduce((acc, cur) => (acc + cur.quantity), 0)
      const total = items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2)
-     const offerPrice  = items.reduce((acc, cur) => (acc + (cur.price * cur.offerPrice)/100 ), 0).toFixed(2)
+     const offerPrice  = items.reduce((acc, cur) => (acc + ((cur.price * cur.offerPrice)/100) * cur.quantity ), 0).toFixed(2)
+ 
+    
+     const totalOff = items.reduce((acc, cur) => (acc + (cur.newOfferPrice * cur.quantity)), 0).toFixed(2)
+     return{itemsCounter,total,totalOff,offerPrice }
+  
+ 
 
-     return { itemsCounter, total,offerPrice }
+    
  }
 
 

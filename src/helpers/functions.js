@@ -113,7 +113,7 @@ const offer = (items) => {
 
 
     // return items.price = offerSale
-    return items.price = total
+    return items.newOfferPrice = +total
 
 }
 

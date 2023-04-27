@@ -10,17 +10,17 @@ const ProductContextProvider = ({ children }) => {
     const [data, setData] = useState([])
     // const [newP, setNewP] = useState({})
 
-// const setNewP={newoffer:20}
- const newData=data.map(item=>{
-    return {...item,offer:12}
-})
+    // const setNewP={newoffer:20}
+    const newData = data.map(item => {
+        return { ...item, offer: 12, newOfferPrice: 0 }
+    })
 
 
 
     useEffect(() => {
-        const getProducts =async () => {
-          
-         return   setData(await getData())
+        const getProducts = async () => {
+
+            return setData(await getData())
 
         }
 
@@ -29,11 +29,11 @@ const ProductContextProvider = ({ children }) => {
 
 
     return (
-       
-       <ProductsContext.Provider value={newData}>
-       
-        {children}
-       </ProductsContext.Provider>
+
+        <ProductsContext.Provider value={newData}>
+
+            {children}
+        </ProductsContext.Provider>
     );
 };
 

@@ -24,6 +24,7 @@ button:active,
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
+  scroll-behavior: smooth;
 
 
   direction: ltr;
@@ -309,6 +310,7 @@ li {
 
 /* modall */
 .overlay {
+  
   background-color: rgba(0, 0, 0, .4);
   position: fixed;
   width: 100%;
@@ -378,14 +380,16 @@ color: var(--blackColor);
 }
 
 .modalAnime {
-  transition: all 500ms ease-in !important;
+  animation-duration:500ms;
   top: 50vh;
+  transition: all ease-in 600ms;
+  
 }
 .closeAnime{
   top: -50vh
 }
 .modal-container img {
-  width: 90%;
+  max-width: 50%;
   object-fit: contain;
 }
 

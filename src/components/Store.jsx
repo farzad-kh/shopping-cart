@@ -39,6 +39,7 @@ const Store = () => {
                             offerPrice={item.offer}
                             price={item.price}
                             id={item.id}
+                            newOfferPrice={item.newOfferPrice}
                             rate={item["rating"].rate}
 
                         />)

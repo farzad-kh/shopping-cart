@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContextProvider';
 import ShopCart from './ShopCart';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { OfferTenContext } from '../context/CartContextProvider';
 const ShopCarts = () => {
     const { state, dispatch } = useContext(CartContext)
     const [loadAnime, setLoadAnime] = useState(false)
-const {offerTen}=useContext(OfferTenContext)
+    const { offerTen } = useContext(OfferTenContext)
     const clearItem = () => {
         if (window.confirm("are you sure you want remove all items ?")) {
 
@@ -43,9 +43,9 @@ const {offerTen}=useContext(OfferTenContext)
 
                     <div div className='checkout-container'>
                         <div className='justify'>total item:<p>{state.itemsCounter}</p></div>
-                        <div className='justify'>total price:<p style={{ fontWeight: "700" }}>${state.total}</p></div>
-{offerTen ?<p style={{color:"var(--blackColor)"}}>you saved: <span style={{color:"rgba(35, 176, 111, 0.97)"}} >${state.offerPrice}</span></p> :""}
-                        
+                        <div className='justify'>total price:<p style={{ fontWeight: "700" }}>${offerTen ?  state.totalOff  :  state.total } </p></div>
+                        {offerTen ? <p style={{ color: "var(--blackColor)" }}>you saved: <span style={{ color: "rgba(35, 176, 111, 0.97)" }} >${state.offerPrice}</span></p> : ""}
+
                         <div className='justify'>
                             <button onClick={() => clearItem()} style={{ color: "#be4949" }}>Clear</button>
                             <button className={`btn-l ${loadAnime && "load"} `} onClick={() => chekoutItem()}>Checkout</button>
@@ -59,7 +59,7 @@ const {offerTen}=useContext(OfferTenContext)
             {state.selectedItems.length >= 1 || state.checkout ?
                 state.selectedItems.map(item => <ShopCart key={item.id} title={item.title}
                     price={item.price} id={item.id} rate={item.rate}
-                    quantity={item.quantity} image={item.image} offerPrice={item.offerPrice} />)
+                    quantity={item.quantity} image={item.image} offerPrice={item.offerPrice} newOfferPrice={item.newOfferPrice} />)
 
                 :
                 <div className='empty-cart'>your cart is empty back to <Link to="/products">Products</Link></div>

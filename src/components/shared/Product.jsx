@@ -15,7 +15,7 @@ const plusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faPlus} />
 const minusIcon = <FontAwesomeIcon style={{ color: "#fff" }} icon={faMinus} />
 
 const Product = ({ title, price, image, id, rate,offerPrice}) => {
-    const dataProduct = { title, price, image, id, rate,offerPrice }
+    const dataProduct = { title, price, image, id, rate,offerPrice}
 
     const { state, dispatch } = useContext(CartContext)
 

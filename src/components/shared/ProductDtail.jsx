@@ -1,11 +1,14 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import style from "./ProductDtail.css"
 import StarRatings from 'react-star-ratings';
-import { rateStars } from '../../helpers/functions';
-const ProductDtail = ({ image, title, price, id, description, category, rate }) => {
+import { rateStars,offer } from '../../helpers/functions';
+import { OfferTenContext } from '../../context/CartContextProvider';
+const ProductDtail = ({ image, title, price, id, description, category, rate,offerPrice }) => {
     const [imgHover,setImgHover]=useState(false)
-
+const data={price,offerPrice}
+const {offerTen}=useContext(OfferTenContext)
+console.log(data);
     return (
         <div className='de' >
 
@@ -36,7 +39,8 @@ const ProductDtail = ({ image, title, price, id, description, category, rate }) 
 
 
                     <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "30px", alignItems: "center" }}>
-                        <span className='info-price'>${price}</span>
+                        <span className='info-price'>${offerTen  ? offer(data):price }</span>
+                
                         <Link to="/products">Back to shop</Link>
                     </div>
 

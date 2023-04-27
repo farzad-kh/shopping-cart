@@ -9,7 +9,7 @@ import ProductDtail from "./shared/ProductDtail"
 const ProductsDtails = () => {
     const params = useParams()
     const idParams = params.id
-
+const offerPercent=useContext(ProductsContext)
 
     const [productId, setProductId] = useState("")
     useEffect(() => {
@@ -17,17 +17,17 @@ const ProductsDtails = () => {
             setProductId(await getData())
         }
         getDataID()
-        console.log(getData());
+       
     }, [])
 
     const productDetails = productId[idParams - 1]
+const a=offerPercent[idParams - 1]
 
 
+console.log();
 
 
-
-
-    console.log(productDetails);
+    
     return (
         <div style={{ width: "100%" }}>
            
@@ -46,6 +46,7 @@ const ProductsDtails = () => {
                         description={productDetails?.description}
                         category={productDetails?.category}
                         rate={productDetails?.rating.rate}
+                        offerPrice={a?.offer}
                     />
 
 
