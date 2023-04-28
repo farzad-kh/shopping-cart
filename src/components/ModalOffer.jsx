@@ -10,8 +10,8 @@ const ModalOffer = () => {
     const { offerTen,setOfferTen } = useContext(OfferTenContext)
     useEffect(() => {
 
-        setTimeout(() => setOpenModal(true), 2000)
-        setTimeout(() => setModalAnime(true), 2200)
+        setTimeout(() => setOpenModal(true), 3000)
+        setTimeout(() => setModalAnime(true), 3200)
 
     }, [])
     

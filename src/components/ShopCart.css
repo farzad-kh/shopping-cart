@@ -309,7 +309,7 @@
     }
 
     .info-container {
-        width: 100%;
+        min-width: 100%;
     }
 
     .img-hover {
@@ -339,9 +339,6 @@
         align-items: center;
     }
 
-    .info-container {
-        width: 100%;
-    }
 
     .img-hover {
         margin-bottom: 12px;

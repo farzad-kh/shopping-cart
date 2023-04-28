@@ -392,6 +392,7 @@ color: var(--blackColor);
 .modal-container img {
   max-width: 50%;
   object-fit: contain;
+  
 }
 
 .modal-right {
@@ -455,14 +456,17 @@ color: var(--blackColor);
     width: 100%;
     height: 100vh;
     flex-direction: column;
-    padding: 2rem;
+   
   }
 
   .modal-container img {
-    height: auto;
-    width: 100%;
+    height: 50%;
+    min-width: 100%;
     object-fit: cover;
-    border-radius: 4%;
+   
+  }
+  .modal-right{
+    height: 100%;
   }
 
 }
