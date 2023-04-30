@@ -83,7 +83,7 @@ const isInCart = (state, id) => {
 }
 const quan = (state, id) => {
     const q = state.selectedItems.findIndex(item => item.id === id);
-    console.log(q)
+  
     return q
 
 }
@@ -100,7 +100,7 @@ const quantityCount = (state, id) => {
 
 
 const offer = (items) => {
-    console.log(items.offerPrice);
+    
 
 
     const percent = (items.price * items.offerPrice) / 100

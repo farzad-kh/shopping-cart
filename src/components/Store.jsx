@@ -15,7 +15,7 @@ const Store = () => {
         setSearch(e.target.value.toLowerCase())
 
     }
-   console.log(ProductsData);
+  
     let regex = /'/g;
     const searchProducts=ProductsData.filter(item=>item.title.replace(regex,"").toLowerCase().includes(search))
     return (

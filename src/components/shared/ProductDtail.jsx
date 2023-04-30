@@ -8,7 +8,7 @@ const ProductDtail = ({ image, title, price, id, description, category, rate,off
     const [imgHover,setImgHover]=useState(false)
 const data={price,offerPrice}
 const {offerTen}=useContext(OfferTenContext)
-console.log(data);
+
     return (
         <div className='de' >
 

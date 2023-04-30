@@ -18,7 +18,7 @@ const ShopCarts = () => {
         }
 
     }
-    console.log(state);
+
     const chekoutItem = () => {
         setLoadAnime(true)
         //   setTimeout(()=>  dispatch({type:"CHECKOUT"}),2000)

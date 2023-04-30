@@ -28,7 +28,7 @@ const CheckOutSuccess = () => {
                         <p style={{ fontSize: "0.9rem", textAlign: "center", color: "var(--blackColor)" }} >Check your email for the receipt</p>
                     </div>
                     <div>
-                        <Link onClick={()=> dispatch({type:"CECKOUT"})} to="/products" style={{ textTransform: "uppercase", borderRadius: "4px", lineHeight: "4", background: "rgb(25, 142, 212)", color: "#fff", padding: "10px 15px" }}>continue shopping</Link>
+                        <Link onClick={()=> dispatch({type:"CLEAR"})} to="/products" style={{ textTransform: "uppercase", borderRadius: "4px", lineHeight: "4", background: "rgb(25, 142, 212)", color: "#fff", padding: "10px 15px" }}>continue shopping</Link>
                     </div>
                 </div>
                 </div>

@@ -6,9 +6,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const shopIcon = <FontAwesomeIcon style={{ color: "#fff",height:"20px" }} icon={faCartShopping} />
     const { state } = useContext(CartContext)
-    {
-        console.log(state.itemsCounter);
-    }
+   
 
     return (
         <div style={{paddingBottom:"50px"}}>

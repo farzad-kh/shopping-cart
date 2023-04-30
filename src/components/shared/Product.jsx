@@ -19,9 +19,6 @@ const Product = ({ title, price, image, id, rate,offerPrice}) => {
 
     const { state, dispatch } = useContext(CartContext)
 
-    useEffect(() => {
-        console.log(state);
-    }, [])
     const { offerTen } = useContext(OfferTenContext)
     const data = useContext(ProductsContext)
 
@@ -70,11 +67,11 @@ const Product = ({ title, price, image, id, rate,offerPrice}) => {
                     : ""}
 
 
-{console.log(dataProduct)}
+
             </div>
 
 
-
+{console.log(state)}
             <div>
                 {/* {state.selectedItems[quan(state, id)].quantity */}
                 <div className='quantity-btn-container btn-quan'>

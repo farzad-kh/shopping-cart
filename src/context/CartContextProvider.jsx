@@ -16,13 +16,13 @@ const initialState = {
      // const itemsCounter = itemsQuantity.reduce((acc,cur)=>(acc+cur),0)
      
      const itemsCounter = items.reduce((acc, cur) => (acc + cur.quantity), 0)
-     const total = items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2)
-     const offerPrice  = items.reduce((acc, cur) => (acc + ((cur.price * cur.offerPrice)/100) * cur.quantity ), 0).toFixed(2)
+     const total = +(items.reduce((acc, cur) => (acc + (cur.price * cur.quantity)), 0).toFixed(2))
+     const offerPrice  = +(items.reduce((acc, cur) => (acc + ((cur.price * cur.offerPrice)/100) * cur.quantity ), 0).toFixed(2))
  
     
-     const totalOff = items.reduce((acc, cur) => (acc + (cur.newOfferPrice * cur.quantity)), 0).toFixed(2)
-     return{itemsCounter,total,totalOff,offerPrice }
-  
+     const totalOff = +(items.reduce((acc, cur) => (acc + (cur.newOfferPrice * cur.quantity)), 0).toFixed(2))
+ 
+     return{itemsCounter,total,totalOff, offerPrice }
  
 
     
@@ -44,7 +44,8 @@ const cartReducer = (state, action) => {
             return {
 
                 ...state,
-                ...state.selectedItems,
+                // be ravesh paine migan merge kardan
+                selectedItems:[...state.selectedItems],
                 ...sumItems(state.selectedItems),
 
                 checkout: false

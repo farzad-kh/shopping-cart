@@ -24,7 +24,7 @@ const offerPercent=useContext(ProductsContext)
 const a=offerPercent[idParams - 1]
 
 
-console.log();
+
 
 
     
