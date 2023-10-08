@@ -11,6 +11,7 @@ import ShopCart from "./components/ShopCarts";
 import ShopCarts from "./components/ShopCarts";
 import Fiture from "./components/Fiture";
 import ModalOffer from "./components/ModalOffer";
+import Footer from "../src/components/layout/Footer"
 import { useEffect, useState } from "react";
 
 
@@ -23,17 +24,20 @@ function App() {
 
     <ProductContextProvider>
       <CartContextProvider>
-     
-        <Navbar />
-        < ModalOffer   />
-        <Routes>
-          <Route path="/products/:id" element={<ProductsDtails />} />
-          <Route path="/products" element={<Store />} />
-          <Route path="/*" element={<Navigate to="/products" />} />
-          <Route path="/shopcart" element={<ShopCarts />} />
-        </Routes>
-      </CartContextProvider>
+        <div style={{minHeight:"85vh"}}>
 
+          <Navbar />
+          < ModalOffer />
+          <Routes>
+            <Route path="/products/:id" element={<ProductsDtails />} />
+            <Route path="/products" element={<Store />} />
+            <Route path="/*" element={<Navigate to="/products" />} />
+            <Route path="/shopcart" element={<ShopCarts />} />
+          </Routes>
+        
+        </div>
+      </CartContextProvider>
+      <Footer />
     </ProductContextProvider>
 
 

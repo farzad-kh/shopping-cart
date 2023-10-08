@@ -5,7 +5,7 @@ import { faArrowRight} from '@fortawesome/free-solid-svg-icons'
 const arrowsLeftRight = <FontAwesomeIcon style={{color:"black"}} icon={faArrowRight} />
 const Fiture = () => {
     return (
-        <div>
+        <div className='main'>
             <div className="fiture">
 
                 <div className="buttons" >
